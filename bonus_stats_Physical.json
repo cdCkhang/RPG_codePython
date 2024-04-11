@@ -1,0 +1,178 @@
+{"bonus-stats":
+  [
+    {
+      "id":0,
+      "name": "Physical attack",
+      "value_range": [265,310],
+      "rate": 1
+    },
+    {
+      "id": 1,
+      "name": "Bonus physical attack",
+      "value_range": [40,80],
+      "rate": 2
+    },
+    {
+      "id": 2,
+      "name": "Physical damage efficiency",
+      "value_range": [11,22],
+      "rate": 100
+    },
+    {
+      "id": 3,
+      "name": "Striking force",
+      "value_range": [27,54],
+      "rate": 2
+    },
+    {
+      "id": 4,
+      "name": "Physical armor penetration",
+      "value_range": [100,200],
+      "rate": 1
+    },
+    {
+      "id": 5,
+      "name": "Critical strike chance",
+      "value_range": [40,80],
+      "rate": 4
+    },
+    {
+      "id": 6,
+      "name": "Critical strike damage",
+      "value_range": [12, 24],
+      "rate": 1
+    },
+    {
+      "id": 7,
+      "name": "Magic defense",
+      "value_range": [25,50],
+      "rate": 1
+    },
+    {
+      "id": 8,
+      "name": "Spell burst",
+      "value_range": [44,88],
+      "rate": 2
+    },
+    {
+      "id": 9,
+      "name": "Mana infusion",
+      "value_range": [21,42],
+      "rate": 2
+    },
+    {
+      "id": 10,
+      "name": "Ability life steal",
+      "value_range": [18,36],
+      "rate": 2
+    },
+    {
+      "id": 11,
+      "name": "Heal reduction",
+      "value_range": [40,80],
+      "rate": 1
+    },
+    {
+      "id": 12,
+      "name": "Mana steal",
+      "value_range": [30,60],
+      "rate": 2
+    },
+    {
+      "id": 13,
+      "name": "Stun chance",
+      "value_range": [30,60],
+      "rate": 2
+    },
+    {
+      "id": 14,
+      "name": "Crippling chance",
+      "value_range": [30,60],
+      "rate": 2
+    },
+    {
+      "id": 15,
+      "name": "Supression chance",
+      "value_range": [30,60],
+      "rate": 2
+    },
+    {
+      "id": 16,
+      "name": "Corruption chance",
+      "value_range": [30,60],
+      "rate": 2
+    },
+    {
+      "id": 17,
+      "name": "Disarm chance",
+      "value_range": [30,60],
+      "rate": 2
+    },
+    {
+      "id": 18,
+      "name":
+      [
+        {"name": "Fire", "id": 0},
+        {"name": "Water", "id": 1},
+        {"name": "Lightning", "id": 2},
+        {"name": "Earth", "id": 3},
+        {"name": "Dark", "id": 4},
+        {"name": "Light", "id": 5}
+      ],
+      "suffix": " elemental attack",
+      "value_range": [120,210],
+      "rate": 1
+    },
+    {
+      "id": 19,
+      "name":
+      [
+        {"name": "Fire", "id": 0},
+        {"name": "Water", "id": 1},
+        {"name": "Lightning", "id": 2},
+        {"name": "Earth", "id": 3},
+        {"name": "Dark", "id": 4},
+        {"name": "Light", "id": 5}
+      ],
+      "suffix": " elemental vulnerability",
+      "value_range": [50,80],
+      "rate": 1
+    },
+    {
+      "id": 20,
+      "name": "Shield breaker damage",
+      "value_range": [38,76],
+      "rate": 2
+    },
+    {
+      "id": 21,
+      "name": "Boss damage",
+      "value_range": [38,76],
+      "rate": 2
+    },
+    {
+      "id": 22,
+      "name": "Health",
+      "value_range": [500, 800],
+      "rate": 1
+    },
+    {
+      "id": 23,
+      "name": "Mana",
+      "value_range": [300,460],
+      "rate": 1
+    },
+    {
+      "id": 24,
+      "name": "Physical armor",
+      "value_range": [100,200],
+      "rate": 1
+    },
+    {
+      "id": 24,
+      "name": "Magic armor",
+      "value_range": [100,200],
+      "rate": 1
+    }
+  ]
+}

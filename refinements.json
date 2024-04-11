@@ -1,0 +1,19 @@
+{
+  "refinements":
+  [
+    {
+      "id": 0,
+      "name": "Berserker's Spirit",
+      "base_value": 10,
+      "level_range": [1,5],
+      "value_per_lvl": 2
+    },
+    {
+      "id": 1,
+      "name": "Mage's Secret",
+      "base_value": 10,
+      "level_range": [1,5],
+      "value_per_lvl": 2
+    }
+  ]
+}
