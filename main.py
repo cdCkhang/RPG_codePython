@@ -29,11 +29,13 @@ def import_data(file):
     return data
 
 
-newItem = ic("ca", 3, {1: 3}, 12, 0, 2, [30, 30], [0, 100], [{1: 30}, {0: 100}], [{7: 40}, {4: 35}, {2: 12}], {0: 1},
-              [(1, 2), (0, 0)])
+newItem = ic("ca", 3, {1: 3}, 12, 4, 2, [30, 30], [0, 100], [{1: 30}, {0: 100}], [{7: 40}, {4: 35}, {2: 12}], {0: 1})
 
 
 if __name__ == '__main__':
-    print(ic.number_to_rarity(newItem.GetItemAttribute["rarity"]))
+    print(newItem.__getitem__()["rarity"])
+    print(newItem.__getitem__()["refinements"])
+    print(ic.rarity_mapping(newItem.GetItemAttribute["rarity"]))
+    print(newItem.__getitem__()["star"])
     import_data(file_paths[0])
 
