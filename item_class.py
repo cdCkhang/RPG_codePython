@@ -9,11 +9,12 @@ class Item:
     _Item_mastery: list = [0, 0]  # Ex : 40,100 ==> Mas : 40/100
     _Item_base_stats: list[list] = [(0, 0)]  # Ex : 1[id], 130[value] ==> Physical attack : +130
     _Item_bonus_stats: list[list] = [(0, 0)]  # Ex : 4[id], 40[value] ==> Physical armor penetration : +40
-    _Item_unique: dict = {0: 0} # Ex : 1[id], 2[level/value] ==> Increase basic attack damage by %
-    _Item_refinements: list[list[int, int]] = [(0, 0), (0, 0)] # Ex : [(1,2),(2,3)] ==> Ref#1 with level 2, Ref#2 with level 3
+    _Item_unique: dict = {0: 0}  # Ex : 1[id], 2[value/level] ==> Increase basic attack damage by %
+    _Item_refinements: list[list[int, int]] = [(0, 0),
+                                               (0, 0)]  # Ex : [(1,2),(2,3)] ==> Ref id#1 level 2, Ref id#2 level 3
 
     def __init__(self, name, rarity, grade, upgrades, star_crafted, element_type, durability, mastery,
-                 base_stats, bonus_stats, unique=None, refinements=None):
+                 base_stats, bonus_stats, unique, refinements):
         self._Item_name = name
         self._Item_rarity = rarity
         self._Item_grade = grade
@@ -26,6 +27,13 @@ class Item:
         self._Item_bonus_stats = bonus_stats
         self._Item_unique = unique
         self._Item_refinements = refinements
+        if (self._Item_name is None) or (self._Item_name == ''):
+            self._Item_name = "Undefined"
+        if(self._Item_rarity is None) or (self._Item_rarity)
+        if (self._Item_durability[0] > self._Item_durability[1]) or (self._Item_durability is None):
+            self._Item_durability = [1, 1]
+        if (self._Item_mastery[0] > self._Item_mastery[1]) or (self._Item_durability is None):
+            self._Item_mastery = [0, 100]
 
     @staticmethod
     def rarity_mapping(_item_rarity: int) -> (str, int):
@@ -60,11 +68,11 @@ class Item:
             4: "Supreme",
         }
         grade_value_multiplier = {
-            0: 1.0,   # No bonus
+            0: 1.0,  # No bonus
             1: 1.03,  # 3% base stats
             2: 1.06,  # 6% base stats
             3: 1.09,  # 9% base stats
-            4: 1.12   # 12% base stats
+            4: 1.12  # 12% base stats
         }
         return {
             grade_name.get(_item_grade, "Undefined"),
@@ -81,7 +89,7 @@ class Item:
             4: "Dark",
             5: "Light"
         }
-        return{
+        return {
             eletype.get(_item_element_type, "None"),
             _item_element_type
         }
@@ -118,9 +126,3 @@ class Item:
             "unique": self._Item_unique,
             "refinements": self._Item_refinements
         }
-
-    def __setitem__(self):
-        if self._Item_durability[0] > self._Item_durability[1]:
-            self._Item_durability = [1, 1]
-        if self._Item_mastery[0] > self._Item_mastery[1]:
-            self._Item_mastery = [0, 100]
