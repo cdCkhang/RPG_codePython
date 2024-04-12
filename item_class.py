@@ -1,5 +1,10 @@
+import math
+
+
 class Item:
     _Item_name: str = ""
+    _Item_level: int = 0
+    _Item_tier: int = 0
     _Item_rarity: int = 0  # Ex : 1 - Rare
     _Item_grade: dict = {0: 0}  # Ex : 1[grade] - 9[value] ==> Excellent : +9% base stats
     _Item_upgrades: int = 0
@@ -10,31 +15,36 @@ class Item:
     _Item_base_stats: list[list] = [(0, 0)]  # Ex : 1[id], 130[value] ==> Physical attack : +130
     _Item_bonus_stats: list[list] = [(0, 0)]  # Ex : 4[id], 40[value] ==> Physical armor penetration : +40
     _Item_unique: dict = {0: 0}  # Ex : 1[id], 2[value/level] ==> Increase basic attack damage by %
-    _Item_refinements: list[list[int, int]] = [(0, 0),
-                                               (0, 0)]  # Ex : [(1,2),(2,3)] ==> Ref id#1 level 2, Ref id#2 level 3
+    _Item_refinements: list[list[int, int]] = [(0, 0), (0, 0)]  # Ex : [(1,2),(2,3)] ==> Ref id#1 level 2, Ref id#2 level 3
 
-    def __init__(self, name, rarity, grade, upgrades, star_crafted, element_type, durability, mastery,
-                 base_stats, bonus_stats, unique, refinements):
+    def __init__(self, name, level, rarity, upgrades, star_crafted, base_stats, bonus_stats, refinements):
+
         self._Item_name = name
+        self._Item_level = level
         self._Item_rarity = rarity
-        self._Item_grade = grade
+        # self._Item_grade = {0: 0}
         self._Item_upgrades = upgrades
         self._Item_star_crafted = star_crafted
-        self._Item_element_type = element_type
-        self._Item_durability = durability
-        self._Item_mastery = mastery
+        self._Item_element_type = 1
         self._Item_base_stats = base_stats
         self._Item_bonus_stats = bonus_stats
-        self._Item_unique = unique
+        # self._Item_unique = unique
         self._Item_refinements = refinements
+
         if (self._Item_name is None) or (self._Item_name == ''):
             self._Item_name = "Undefined"
-        if(self._Item_rarity is None) or (self._Item_rarity)
+        if (self._Item_level is None) or (self._Item_level < 1):
+            self._Item_level = 1
+        # self._Item_tier = int(math.floor(self._Item_level / 10))
+        # is_valid_rarity = lambda a: 1 < a < 6
+        # if(self._Item_rarity is None) or (is_valid_rarity(self._Item_rarity)):
+        #     self._Item_rarity = 0
         if (self._Item_durability[0] > self._Item_durability[1]) or (self._Item_durability is None):
             self._Item_durability = [1, 1]
         if (self._Item_mastery[0] > self._Item_mastery[1]) or (self._Item_durability is None):
             self._Item_mastery = [0, 100]
 
+    # ONLY USE THESE TO GIVE OUT STRING VALUE FOR ITEM - DO NOT USE DIRECTLY FOR CLASS INSTANCE
     @staticmethod
     def rarity_mapping(_item_rarity: int) -> (str, int):
         rarity_name = {
@@ -126,3 +136,7 @@ class Item:
             "unique": self._Item_unique,
             "refinements": self._Item_refinements
         }
+
+    @property
+    def Item_rarity(self):
+        return self._Item_rarity
