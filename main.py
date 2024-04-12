@@ -37,9 +37,11 @@ def import_data(file):
 
 
 if __name__ == '__main__':
-    newItem = ic("ca", 3, {1: 3}, 12, 4, 2, [30, 30], [0, 100])
+    newItem = ic("ca", 3, 1, 12, 1, {0: 12}, {1: 90}, [(0, 9)])
     print(type(newItem.Item_rarity))
-    print(type(newItem.GetItemAttribute["rarity"].items()))
+    print(type(newItem.GetItemAttribute["rarity"]))
+    print(type(newItem.GetItemAttribute["name"]))
+    print(type(newItem.__getitem__()["rarity"]))
     # print(newItem.__getitem__()["rarity"])
     # print(newItem.__getitem__()["refinements"])
     # print(ic.rarity_mapping(newItem.GetItemAttribute["rarity"]))

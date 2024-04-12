@@ -110,7 +110,7 @@ class Item:
             "rarity": self._Item_rarity,
             "grade": self._Item_grade,
             "upgrades": self._Item_upgrades,
-            "star": (self._Item_star_crafted * '★'),
+            "star": self._Item_star_crafted,
             "element": self._Item_element_type,
             "durability": self._Item_durability,
             "mastery": self._Item_mastery,
