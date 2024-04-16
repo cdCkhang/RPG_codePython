@@ -1,51 +1,23 @@
-import json as js
-from item_class import Item as ic
-from numpy.random import MT19937
-from numpy.random import RandomState
-
-
-file_paths = {0: 'bonus_stats_Physical.json', 1: 'bonus_stats_Magic.json', 2: 'bonus_stats_Hybrid.json', 3: 'bonus_stats_Defense.json'}
-rarity_to_bonus_stats = {"C": 1, "R": [1, 2], "E": [2, 3], "L": [3, 4], "M": [5, 6], "D": 6}
-list_of_items = {}
-
-
-def input_an_item() -> [int]:
-    item_type = int(input("Enter item's type ( 0-Phys / 1-Mgc / 2-Hyb /3-Def ) : "))
-    item_rarity = int(input("Enter item's rarity ( 0-Bs ,1-Rr, 2-Ep, 3-Leg, 4-Myth, 5-Div ):"))
-    item_upgrades = int(input("Enter item's number of upgrades : "))
-    item_star = int(input("Enter item's star level : "))
-    return{
-        item_type, item_rarity, item_upgrades, item_star
-    }
-
-
-def generate_an_item(user_inp: [int]) -> ic:
-    data = import_data(file_paths[1])
-    bonus_stats_pool = data['bonus-stats']
-    upperthreshold = bonus_stats_pool[-1]['id']+1
-    for i in bonus_stats_pool:
-        if i['id'] == 2:
-            print(i['name'])
-    newitem = ic("12")
-    return newitem
-
-
-def import_data(file):
-    with open(file, 'r') as JsonReader:
-        data = js.load(JsonReader)
-    return data
-
+from item_class import Item as CLASS_ITEM
 
 if __name__ == '__main__':
-    newItem = ic("ca", 3, 1, 12, 1, {0: 12}, {1: 90}, [(0, 9)])
-    print(type(newItem.Item_rarity))
-    print(type(newItem.GetItemAttribute["rarity"]))
-    print(type(newItem.GetItemAttribute["name"]))
-    print(type(newItem.__getitem__()["rarity"]))
-    # print(newItem.__getitem__()["rarity"])
-    # print(newItem.__getitem__()["refinements"])
-    # print(ic.rarity_mapping(newItem.GetItemAttribute["rarity"]))
-    # print(newItem.__getitem__())
-    # print(newItem.__getitem__()["star"])
-    import_data(file_paths[0])
-
+    # name, tp, level, rarity, upgrades, star_crafted, bonus_stats
+    newItem = CLASS_ITEM("Staff of Doom", 1, 20, 4, 10, 4, 0)
+    info_name = newItem.__getitem__()['name']
+    info_level = newItem.__getitem__()['level']
+    ele = newItem.__getitem__()['element']
+    info_rarity = CLASS_ITEM.rarity_mapping(newItem, newItem.__getitem__()['rarity'])
+    info_grade = newItem.__getitem__()['grade']
+    grade_name = str(CLASS_ITEM.grade_mapping(newItem, info_grade[0]))
+    grade_value = str(int((info_grade[1] - 1.0) * 100))
+    info_upgrade = str(newItem.__getitem__()['upgrades'])
+    info_stars = str(newItem.__getitem__()['star'])
+    info_element, icon = CLASS_ITEM.element_mapping(newItem, ele)
+    print('=' * 60)
+    print('<<'+info_stars + '-Star>> (' + icon + ') ['+info_rarity+'] ' + info_name + ' || Lv.' + info_level + ' (+' + info_upgrade + ') ')
+    print('-' * 60)
+    print("Item's grade : " + grade_name + " [+" + grade_value + "% base stats]")
+    print('-' * 60)
+    for i in newItem.__getitem__()['bonus_stats']:
+        print('- '+str(i[3]) + ': +'+str(i[1]) + '[' + str(i[2])+']')
+    print('=' * 60)

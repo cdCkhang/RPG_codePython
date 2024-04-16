@@ -10,7 +10,10 @@
 4. Write the saved objects in a .json file ( to this step things are done mostly )
 
 Task :
- - step 3 : create an object for the item itself, with a list 
+ - step 2 : Most of the tasks are done correctly
+            Need to improve ( add more seed / rng algorithms )
+
+ - step 3 : Create an object for the item itself, with a list
  - step 4 : 
 
 Note :

@@ -4,175 +4,227 @@
       "id": 0,
       "name": "Magic attack",
       "value_range": [225, 310],
+      "is_flat": 1,
       "rate": 1,
-      "weight": 300
+      "weight": 300,
+      "priority": 5
     },
     {
       "id": 1,
       "name": "Bonus magic attack",
       "value_range": [40, 80],
+      "is_flat": 0,
       "rate": 2,
-      "weight": 300
+      "weight": 300,
+      "priority": 5
     },
     {
       "id": 2,
       "name": "Magic damage efficiency",
       "value_range": [11, 22],
-      "rate": 100
+      "is_flat": 1,
+      "rate": 100,
+      "priority": 4
     },
     {
       "id": 3,
       "name": "Mystic potency",
       "value_range": [27, 54],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 4
     },
     {
       "id": 4,
       "name": "Magic armor penetration",
       "value_range": [50, 80],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 4
     },
     {
       "id": 5,
       "name": "Accuracy",
       "value_range": [100, 200],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 3
     },
     {
       "id": 6,
       "name": "Ability cooldown",
       "value_range": [12, 24],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 4
     },
     {
       "id": 7,
       "name": "Magic defense",
       "value_range": [25, 50],
-      "rate": 1
+      "is_flat": 0,
+      "rate": 1,
+      "priority": 3
     },
     {
       "id": 8,
       "name": "Spell burst",
       "value_range": [44, 88],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 3
     },
     {
       "id": 9,
       "name": "Mana infusion",
       "value_range": [21, 42],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 3
     },
     {
       "id": 10,
       "name": "Ability life steal",
       "value_range": [18, 36],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 3
     },
     {
       "id": 11,
       "name": "Heal reduction",
       "value_range": [40, 80],
-      "rate": 1
+      "is_flat": 0,
+      "rate": 1,
+      "priority": 2
     },
     {
       "id": 12,
       "name": "Mana steal",
       "value_range": [30, 60],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 3
     },
     {
       "id": 13,
       "name": "Stun chance",
       "value_range": [30, 60],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 1
     },
     {
       "id": 14,
       "name": "Crippling chance",
       "value_range": [30, 60],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 1
     },
     {
       "id": 15,
       "name": "Supression chance",
       "value_range": [30, 60],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 1
     },
     {
       "id": 16,
       "name": "Corruption chance",
       "value_range": [30, 60],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 1
     },
     {
       "id": 17,
       "name": "Disarm chance",
       "value_range": [30, 60],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 1
     },
     {
       "id": 18,
       "name": [
-        {"name": "Fire", "id": 0},
-        {"name": "Water", "id": 1},
-        {"name": "Lightning", "id": 2},
-        {"name": "Earth", "id": 3},
-        {"name": "Dark", "id": 4},
-        {"name": "Light", "id": 5}
+        { "id": 0,"type": "Fire"},
+        { "id": 1,"type": "Water"},
+        { "id": 2,"type": "Lightning"},
+        { "id": 3,"type": "Earth"},
+        { "id": 4,"type": "Dark"},
+        { "id": 5,"type": "Light"}
       ],
       "suffix": " elemental attack",
       "value_range": [120, 180],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 4
     },
     {
       "id": 19,
       "name": [
-        {"type": "Fire", "id": 0},
-        {"type": "Water", "id": 1},
-        {"type": "Lightning", "id": 2},
-        {"type": "Earth", "id": 3},
-        {"type": "Dark", "id": 4},
-        {"type": "Light", "id": 5}
+        { "id": 0,"type": "Fire"},
+        { "id": 1,"type": "Water"},
+        { "id": 2,"type": "Lightning"},
+        { "id": 3,"type": "Earth"},
+        { "id": 4,"type": "Dark"},
+        { "id": 5,"type": "Light"}
       ],
       "suffix": " elemental vulnerability",
       "value_range": [50, 80],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 3
     },
     {
       "id": 20,
       "name": "Shield breaker damage",
       "value_range": [38, 76],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 3
     },
     {
       "id": 21,
       "name": "Boss damage",
       "value_range": [38, 76],
-      "rate": 2
+      "is_flat": 0,
+      "rate": 2,
+      "priority": 3
     },
     {
       "id": 22,
       "name": "Health",
       "value_range": [500, 800],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 4
     },
     {
       "id": 23,
       "name": "Mana",
       "value_range": [300, 460],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 4
     },
     {
       "id": 24,
       "name": "Physical armor",
       "value_range": [100, 200],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 3
     },
     {
       "id": 25,
       "name": "Magic armor",
       "value_range": [100, 200],
-      "rate": 1
+      "is_flat": 1,
+      "rate": 1,
+      "priority": 3
     }
   ]
 }
