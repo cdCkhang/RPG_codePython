@@ -1,0 +1,14 @@
+Tasks board :
+- Refactor the item_class.py:
+    + Change how objects are initialized
+    + Fix the handlers
+
+
+- Refactor the constants.py:
+    + Add/Update comments
+
+-
+- Create a base class for derived classes
+- Create a turn-based (no-decision)
+- Create turn-base(with-decision)
+

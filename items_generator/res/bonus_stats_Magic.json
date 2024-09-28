@@ -1,0 +1,196 @@
+{
+  "bonus-stats": [
+    {
+      "id": 0,
+      "name": "Health",
+      "value_range": [800, 1200],
+      "is_flat": 1,
+      "rate": 1
+    },
+     {
+      "id": 1,
+      "name": "Mana",
+      "value_range": [400, 600],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 2,
+      "name": "Physical armor",
+      "value_range": [120, 240],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 3,
+      "name": "Magic armor",
+      "value_range": [120, 240],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 4,
+      "name": "Magic attack",
+      "value_range": [325, 412],
+      "is_flat": 1,
+      "rate": 1,
+      "weight": 300
+    },
+    {
+      "id": 5,
+      "name": "Bonus magic attack",
+      "value_range": [40, 80],
+      "is_flat": 0,
+      "rate": 2,
+      "weight": 300
+    },
+    {
+      "id": 6,
+      "name": "Magic damage efficiency",
+      "value_range": [11, 22],
+      "is_flat": 1,
+      "rate": 100
+    },
+    {
+      "id": 7,
+      "name": "Magical potency",
+      "value_range": [27, 54],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 8,
+      "name": "Magic armor penetration",
+      "value_range": [50, 80],
+        "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 9,
+      "name": "Magic armor infiltration",
+      "value_range": [25, 50],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 10,
+      "name": "Elemental empowering",
+      "value_range": [32, 64],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 11,
+      "name": "Accuracy",
+      "value_range": [100, 200],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 12,
+      "name": "Shield breaker damage",
+      "value_range": [38, 76],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 13,
+      "name": "Boss damage",
+      "value_range": [38, 76],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 14,
+      "name": "Ability cooldown",
+      "value_range": [12, 24],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 15,
+      "name": "Magic defense",
+      "value_range": [25, 50],
+      "is_flat": 0,
+      "rate": 1
+    },
+    {
+      "id": 16,
+      "name": "Spell burst",
+      "value_range": [44, 88],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 17,
+      "name": "Mystic infusion",
+      "value_range": [21, 42],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 18,
+      "name": "Ability life steal",
+      "value_range": [18, 36],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 19,
+      "name": "Heal reduction",
+      "value_range": [40, 80],
+      "is_flat": 0,
+      "rate": 1
+    },
+    {
+      "id": 20,
+      "name": "Mana steal",
+      "value_range": [30, 60],
+      "is_flat": 0,
+      "rate": 2
+    },
+    {
+      "id": 21,
+      "name": "Attack speed",
+      "value_range": [16, 32],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 22,
+      "name": " elemental attack",
+      "value_range": [22,33],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 23,
+      "name": [
+        { "s_id": 0,"type": "Pyro"},
+        { "s_id": 1,"type": "Hydro"},
+        { "s_id": 2,"type": "Electro"},
+        { "s_id": 3,"type": "Geo"},
+        { "s_id": 4,"type": "Scoto"},
+        { "s_id": 5,"type": "Photon"}
+      ],
+      "sfx": " elemental vulnerability",
+      "value_range": [120, 180],
+      "is_flat": 1,
+      "rate": 1
+    },
+    {
+      "id": 24,
+      "name": [
+        { "s_id": 0,"type": "Stun"},
+        { "s_id": 1,"type": "Crippling"},
+        { "s_id": 2,"type": "Supression"},
+        { "s_id": 3,"type": "Corruption"},
+        { "s_id": 4,"type": "Disarm"}
+      ],
+      "sfx": " chance",
+      "value_range": [30, 60],
+      "is_flat": 0,
+      "rate": 2
+    }
+  ]
+}
