@@ -4,7 +4,9 @@ class CONSTANTS_STATS:
     #                         <<<<<     MODIFIERS, DICTIONARIES       >>>>>
     #             Constant values for calculation, output purpose. Can be used by all items.
     # ===============================================================================================
-    # Base value
+
+
+    #>>>>>>>>>>>>>>>>>>>>>>>>>> SECTION 1: OFFENSIVE STATS >>>>>>>>>>>>>>>>>>>>>>>>>>
     # Attacks ( Offensive )
     Map_base_attacks = {
         0: 5,  # 0 - Physical,
