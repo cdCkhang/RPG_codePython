@@ -11,7 +11,7 @@ class CONSTANTS_STATS:
         1: 8  # Base magic attack
     }
 
-    Base_element_attack = 6  # Apply for all elemental variations.
+    Base_element_attack = 3 # Apply for all elemental variations.
 
     # >>>>>>>>>>>>>>>>>>>>>>>>>> SECTION 2: DEFENSIVE STATS >>>>>>>>>>>>>>>>>>>>>>>>>>
 

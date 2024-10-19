@@ -8,7 +8,7 @@
     },
     {
       "id": 1,
-      "name": "Bonus physical attack",
+      "name": "%Physical attack",
       "value_range": [40,80],
       "rate": 2
     },

@@ -4,13 +4,13 @@ from item_class import Item as classitem
 
 
 def createNewItem() -> classitem:
-    i_name = "Cursed Sword from the Abyss"
-    i_type = 1
-    i_level = 50
+    i_name = "Cursed Broken Sword from the Abyss"
+    i_type = 0
+    i_level = 30
     i_rarity = 1
-    i_upgrades = 10
-    i_mastery = 299
-    i_star_crafted = 1
+    i_upgrades = 0
+    i_mastery = 0
+    i_star_crafted = 0
     generateditem = classitem(i_name, i_type, i_level, i_rarity, i_upgrades, i_mastery ,i_star_crafted)
     return generateditem
 
@@ -46,8 +46,7 @@ def GetAttributes(instance: classitem):
 
 def showItemInfo(instance: classitem):
     (i_name, i_level, i_tier, d1, d2, ele_name, ele_icon, i_rarity, i_curmas, i_maxmas, i_masstack, g_name, g_val,
-     i_upgrade, i_stars, i_base, i_bonus) = GetAttributes(
-        instance)
+     i_upgrade, i_stars, i_base, i_bonus) = GetAttributes(instance)
     n = 80
     print('=' * 33, "Item Details", '=' * 33)
     print(f"<{int(i_stars) * '★'}> [{i_rarity}][Lv.{i_level}][{ele_icon}] / {i_name} / (+{i_upgrade})")
