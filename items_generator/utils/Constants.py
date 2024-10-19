@@ -6,7 +6,6 @@ class CONSTANTS_STATS:
     # ===============================================================================================
 
     # >>>>>>>>>>>>>>>>>>>>>>>>>> SECTION 1: OFFENSIVE STATS >>>>>>>>>>>>>>>>>>>>>>>>>>
-
     Map_base_attacks = {
         0: 5,  # Base physical attack,
         1: 8  # Base magic attack
