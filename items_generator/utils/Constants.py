@@ -26,10 +26,12 @@ class CONSTANTS_STATS:
         0: [0], 1: [1], 2: [0, 1]
     }
 
+
     # Multipliers for each variation.
     # 1.8- Apply for phys. only,
     # 1.6- Apply for magic only,
     # 1.0- Apply for Phys. and Magic.
+    # Single armor equipm. will have more base armor comparing to dual armors equipment
     Map_armor_base_multiplier = {
         0: 1.8, 1: 1.6, 2: 1.0
     }
@@ -38,12 +40,12 @@ class CONSTANTS_STATS:
 
     # Masteries
     Rate_mastery_level = 100  # Divi number for mastery. Value range: 0 - 300
-
     # Upper and lower limit for mastery
     Min_mastery = 0
     Max_mastery = 300
     Universal_mastery_stack = 0.12  # +12% / mastery stack
-    Offensive_mastery_multiplier = 0.0008  # +0.8% / mastery point
+    Offensive_mastery_multiplier = 0.0008 # +0.8% / mastery point
+
     # 0 - Single armor, 1 - Dual armor
     Defensive_master_multiplier = {
         0: [0.0015, 0.0012],  # +0.15% health and +0.12% armor [single armor] per point

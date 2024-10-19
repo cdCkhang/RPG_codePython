@@ -6,7 +6,7 @@ from item_class import Item as classitem
 def createNewItem() -> classitem:
     i_name = "Cursed Sword from the Abyss"
     i_type = 1
-    i_level = 56
+    i_level = 50
     i_rarity = 4
     i_upgrades = 10
     i_mastery = 299
@@ -53,20 +53,20 @@ def showItemInfo(instance: classitem):
     print('=' * 33, "Item Details", '=' * 33)
     print(f"<{int(i_stars) * '★'}> [{i_rarity}][Lv.{i_level}][{ele_icon}] / {i_name} / (+{i_upgrade})")
     print('-' * n)
-    print(f"_Type: Tier {i_tier} - [{ele_name}] Mage class weapon")
-    print(f"_Grade: {g_name} (+{g_val}% base stats)")
-    print(f"_Mastery: {i_curmas}/{i_maxmas}[{i_masstack}]")
-    print(f"_Durability: {d1}/{d2}")
+    print(f"Type: Tier {i_tier} - [{ele_name}] Mage class weapon")
+    print(f"Grade: {g_name} (+{g_val}% base stats)")
+    print(f"Mastery: {i_curmas}/{i_maxmas}[{i_masstack}]")
+    print(f"Durability: {d1}/{d2}")
     print('-' * n)
-    print('_Base stats:')
+    print('Base stats:')
     for i in i_base:
-        print(f"    <*> {str(i[0])}: +{str(i[1])}")
+        print(f"    <+> {str(i[0])}: +{str(i[1])}")
     print('-' * n)
-    print('_Bonus stats:')
+    print('Bonus stats:')
     for i in i_bonus:
-        print(f"    [+] {str(i[3])}: +{str(i[1])}")
+        print(f"    [*] {str(i[3])}: +{str(i[1])}")
     print('-' * n)
-    print("_Special attribute:")
+    print("Special attribute:")
     if instance.__getitem__()['rarity'] < 3:
         print(f"    {i_sa[0]}")
     else:

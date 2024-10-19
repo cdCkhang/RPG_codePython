@@ -68,7 +68,7 @@ class Item:
         # Depenedent variable
         self.__base_atk = CONSTANTS_STATS.Map_base_attacks.get(self._Item_type)
 
-        # Checking valid value when init new instance
+        # Getting valid values
         valid_rarity = self.__rarity_name.keys()
         valid_grade = self.__grade_name.keys()
         valid_element = self.__eletype.keys()
