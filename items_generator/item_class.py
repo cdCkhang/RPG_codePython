@@ -18,7 +18,8 @@ type_switcher = {
 
 
 class Item:
-    # Attributes of an item
+
+    # Attributes
     _Item_name: str = ""
     _Item_type: int = 0
     _Item_rarity: int = 0
@@ -41,7 +42,7 @@ class Item:
     __type_name = CONSTANTS_STATS.Map_item_type
     __rarity_name = CONSTANTS_STATS.Map_rarity_name
     __rarity_value = CONSTANTS_STATS.Map_rarity_buff_rate
-    __masrate = CONSTANTS_STATS.Rate_mastery
+    __masrate = CONSTANTS_STATS.Rate_mastery_level
     __masmax = CONSTANTS_STATS.Max_mastery
     __masmin = CONSTANTS_STATS.Min_mastery
     __base_ele_atk = CONSTANTS_STATS.Base_element_attack

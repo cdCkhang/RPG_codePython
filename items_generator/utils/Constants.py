@@ -1,50 +1,60 @@
 class CONSTANTS_STATS:
+    # ===============================================================================================
+    #          <<<<<     BASE VALUES, MODIFERS'S VALUES, FOR RANDOM PURPOSE VALUES       >>>>>
+    #
+    #             Constant values for stats calculation. Applicable for all item types.
+    # ===============================================================================================
 
-    # ===============================================================================================
-    #                         <<<<<     MODIFIERS, DICTIONARIES       >>>>>
-    #             Constant values for calculation, output purpose. Can be used by all items.
-    # ===============================================================================================
-    # Base value
-    # Attacks ( Offensive )
+    # >>>>>>>>>>>>>>>>>>>>>>>>>> SECTION 1: OFFENSIVE STATS >>>>>>>>>>>>>>>>>>>>>>>>>>
+
     Map_base_attacks = {
-        0: 5,  # 0 - Physical,
-        1: 8   # 1 - Magic
+        0: 5,  # Base physical attack,
+        1: 8  # Base magic attack
     }
-    Base_element_attack = 6
 
-    # Health and Armors ( Defensive )
+    Base_element_attack = 6  # Apply for all elemental variations.
+
+    # >>>>>>>>>>>>>>>>>>>>>>>>>> SECTION 2: DEFENSIVE STATS >>>>>>>>>>>>>>>>>>>>>>>>>>
+
     Base_health = 30
     Base_physical_armor = 5
     Base_magic_armor = 4
+
+    # Random armor variations.
+    # ( 1- Phys. Armor, 2- Magic.Armor, 3-Both )
     Map_random_armor = {
-        # 0 - Physical armor, 1 - Magic amor, 2 - Both
-        0: [0], 1: [1], 2:[0,1]
+        0: [0], 1: [1], 2: [0, 1]
     }
-    # Single armor equipm. will have more base armor comparing to dual armors equipment
+
+    # Multipliers for each variation.
+    # 1.8- Apply for phys. only,
+    # 1.6- Apply for magic only,
+    # 1.0- Apply for Phys. and Magic.
     Map_armor_base_multiplier = {
-        # 0 - Physical armor, 1 - Magic amor, 2 - Both
         0: 1.8, 1: 1.6, 2: 1.0
     }
 
+    # >>>>>>>>>>>>>>>>>>>>>>>>>> SECTION 3: MODIFERS VALUES >>>>>>>>>>>>>>>>>>>>>>>>>>
+
     # Masteries
-    Rate_mastery = 100 # Standard divison number for mastery. Value range: 0 - 300
+    Rate_mastery_level = 100  # Divi number for mastery. Value range: 0 - 300
+
     # Upper and lower limit for mastery
     Min_mastery = 0
     Max_mastery = 300
     Universal_mastery_stack = 0.12  # +12% / mastery stack
-    Offensive_mastery_multiplier = 0.0008 # +0.8% / mastery point
+    Offensive_mastery_multiplier = 0.0008  # +0.8% / mastery point
     # 0 - Single armor, 1 - Dual armor
     Defensive_master_multiplier = {
-        0: [0.0015, 0.0012], # +0.15% health and +0.12% armor [single armor] per point
-        1:[0.0008, 0.0006] # +0.08% for health and +0.06% armor [dual armor] per point
+        0: [0.0015, 0.0012],  # +0.15% health and +0.12% armor [single armor] per point
+        1: [0.0008, 0.0006]  # +0.08% for health and +0.06% armor [dual armor] per point
     }
     Hybrid_mastery_stack = 0.06
     Hybrid_mastery_multiplier = 0.0004
 
     # Upgrades, Stars
-    Multiplier_uprades = 0.03 # +3% base stats value / Upgrade
-    Multiplier_star = 0.1 # +10% bonus stats value / Star
-
+    Multiplier_uprades = 0.03  # +3% base stats value / Upgrade
+    Multiplier_star = 0.1  # +10% bonus stats value / Star
 
     # Item types and attacks, for: string output
     Map_item_type = {
@@ -56,7 +66,6 @@ class CONSTANTS_STATS:
     Map_primary_attack = {
         0: "Physical", 1: "Magic"
     }
-
 
     # Rarity name dict, for: string output
     Map_rarity_name = {
@@ -87,7 +96,6 @@ class CONSTANTS_STATS:
         5: [6, 6]  # Divine
     }
 
-
     # Durability dict for: calculate dur based on rarity
     Map_durability = {
         0: 15,  # Basic
@@ -95,14 +103,13 @@ class CONSTANTS_STATS:
         2: 16,  # Epic
         3: 16,  # Legendary
         4: 17,  # Mythic
-        5: 18   # Divine
+        5: 18  # Divine
     }
 
     # ??? What the literal fuck is this
     Map_tier_multiplier = {
         1: 5, 2: 5, 3: 1
     }
-
 
     # Base stats dict for: multipliers based on item's tier
     # Ranging from tier 0 (lv-1 to lv-10 ) to tier 14 (lv.141-150)

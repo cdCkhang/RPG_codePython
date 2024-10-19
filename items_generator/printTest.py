@@ -9,7 +9,7 @@ def createNewItem() -> classitem:
     i_level = 56
     i_rarity = 4
     i_upgrades = 10
-    i_mastery = 129
+    i_mastery = 299
     i_star_crafted = 1
     generateditem = classitem(i_name, i_type, i_level, i_rarity, i_upgrades, i_mastery ,i_star_crafted)
     return generateditem
