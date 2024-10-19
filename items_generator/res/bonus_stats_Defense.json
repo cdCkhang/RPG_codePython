@@ -1,0 +1,11 @@
+{
+  "bonus-stats": [
+    {
+      "id": 0,
+      "name": "Health",
+      "value_range": [800, 1200],
+      "is_flat": 1,
+      "rate": 1
+    }
+    ]
+}
