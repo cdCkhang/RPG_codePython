@@ -7,7 +7,7 @@ def createNewItem() -> classitem:
     i_name = "Cursed Sword from the Abyss"
     i_type = 1
     i_level = 50
-    i_rarity = 4
+    i_rarity = 1
     i_upgrades = 10
     i_mastery = 299
     i_star_crafted = 1
@@ -36,18 +36,17 @@ def GetAttributes(instance: classitem):
     stars = str(instance.__getitem__()['star'])
     base_stats = instance.__getitem__()['base_stats']
     bonus_stats = instance.__getitem__()['bonus_stats']
-    special_attr = instance.__getitem__()['special_attribute']
-    out_sa = instance.s_speical_attribute(special_attr)
+
     return (
         name, level, tier, cur_dur, max_dur, element_name, element_icon, rarity, cur_mas, max_mas, stack_mas, grade,
-        grade_value, upgrade, stars,base_stats, bonus_stats, out_sa
+        grade_value, upgrade, stars,base_stats, bonus_stats
         # Use this for an easier life. Dont guess what is the n-th element in a list.
     )
 
 
 def showItemInfo(instance: classitem):
     (i_name, i_level, i_tier, d1, d2, ele_name, ele_icon, i_rarity, i_curmas, i_maxmas, i_masstack, g_name, g_val,
-     i_upgrade, i_stars, i_base, i_bonus, i_sa) = GetAttributes(
+     i_upgrade, i_stars, i_base, i_bonus) = GetAttributes(
         instance)
     n = 80
     print('=' * 33, "Item Details", '=' * 33)
@@ -65,13 +64,6 @@ def showItemInfo(instance: classitem):
     print('Bonus stats:')
     for i in i_bonus:
         print(f"    [*] {str(i[3])}: +{str(i[1])}")
-    print('-' * n)
-    print("Special attribute:")
-    if instance.__getitem__()['rarity'] < 3:
-        print(f"    {i_sa[0]}")
-    else:
-        print(f"    <Lv.{i_sa[1]}> [{i_sa[0]}] / {i_sa[2]} / {i_sa[3]}")
-        print('=' * n)
 
 
 def main():

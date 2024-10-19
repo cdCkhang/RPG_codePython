@@ -47,8 +47,8 @@ class Item:
     __masmin = CONSTANTS_STATS.Min_mastery
     __base_ele_atk = CONSTANTS_STATS.Base_element_attack
     __number_of_bs = CONSTANTS_STATS.Map_numberofbs
-    __base_multiplier = CONSTANTS_STATS.Map_base_multiplier
-    __sub_multiplier = CONSTANTS_STATS.Map_sub_multiplier
+    __base_tier_multiplier = CONSTANTS_STATS.Map_base_tier_multiplier
+    __element_multiplier = CONSTANTS_STATS.Map_element_multiplier
     __upgrade_multiplier = CONSTANTS_STATS.Multiplier_uprades
     __grade_name = CONSTANTS_STATS.Map_grade_name
     __grade_value = CONSTANTS_STATS.Map_grade_value
@@ -61,74 +61,80 @@ class Item:
     __special_stat_id = [22, 23, 24]
 
     def __init__(self, name="", itype=0, level=10, rarity=0, number_of_upgrades=0, mastery_point=0, star_crafted=0):
-        # Get bonus stats from file by item's type
+
+        # [GET] The equipvalent Bonus stats Pool (.JSON files).
+        self._Item_type = itype
         file_content = JsonResourceHandler.import_data(str(type_switcher.get(self._Item_type)))
         self.Bonus_stats_data = file_content['bonus-stats']
 
-        # Depenedent variable
+        # [GET] base attacks.
         self.__base_atk = CONSTANTS_STATS.Map_base_attacks.get(self._Item_type)
 
-        # Getting valid values
+        # [GET] lists used for checking validity of inputs.
         valid_rarity = self.__rarity_name.keys()
         valid_grade = self.__grade_name.keys()
         valid_element = self.__eletype.keys()
 
+        # [HANDLE] Name
         self._Item_name = name
         if (self._Item_name == '') | (type(self._Item_name) is not str):
             self._Item_name = "?Undefined"
 
-        self._Item_type = itype
-
+        # [HANDLE] Level
         self._Item_level = level
         if (self._Item_level is None) | (self._Item_level < 1) | (type(self._Item_level) is not int):
             self._Item_level = 10
 
+        # [GET] Tier based on level.
         self._Item_tier = Item.caculate_tier(self._Item_level)
 
+        # [HANDLE] Rarity
         self._Item_rarity = rarity
         if (self._Item_rarity is None) | (self._Item_rarity not in valid_rarity) | (type(self._Item_rarity) is not int):
             self._Item_rarity = 1
 
+        # [HANDLE] Mastery points & Levels
         if (mastery_point > self.__masmax) | (mastery_point < self.__masmin):
             self._Item_mastery = [0, 100, 0]
         else:
             self._Item_mastery = self.calculate_mastery(mastery_point)
 
+        # [HANDLE] Item upgrade counts
         self._Item_upgrades = number_of_upgrades
         if (self._Item_upgrades < 0) | (self._Item_upgrades is None) | (type(self._Item_upgrades) is not int):
             self._Item_upgrades = 0
 
+        # [SET] Item stars crafted
         self._Item_star_crafted = star_crafted
 
+        # [HANDLE] Item Grade
         if self._Item_grade[0] not in valid_grade:
             self._Item_grade[0] = self.generate_grade()
 
+        # [HANDLE] Item Durability
         if (self._Item_durability[0] < 0) | (self._Item_durability[1] < 0) | (self._Item_durability[1] <
                                                                               self._Item_durability[0]):
             self._Item_durability[0] = self._Item_durability[1] = self.calculate_durability(self._Item_tier,
                                                                                             self._Item_rarity)
 
+        # [HANDLE] Item element type.
         if self._Item_element_type not in valid_element:
             self._Item_element_type = self.generate_elemental_type(list(self.__eletype)[-1] + 1)
 
+        # [HANDLE] Item element type.
         self._Item_base_stats = self.generate_base_stats(self.__base_atk, self.__base_ele_atk, self._Item_tier,
                                                          self._Item_level)
         self._Item_bonus_stats = self.generate_bonus_stats(self._Item_rarity)
 
-        if self._Item_rarity > 2:
-            self._Item_SA = [0,3,"Master-crafted","Increase all skills level by 3 levels"]
-        else:
-            self._Item_SA = ["None"]
-
-        # Item unique id.
+        # [SET] Item unique id.
         self.ID = self.__hash__() * customhash.getmilisec()
         print(self.ID)
 
 
-    # FUNCTIONS USE TO GENERATE/SET VALUE WHEN CREATE NEW INSTANCE
     @classmethod
     def generate_seed(cls) -> int:
         return int(hashlib.sha256(os.urandom(32)).hexdigest(), 16)
+
 
     @classmethod
     def generate_a_number(cls, lthreshold=1, uthreshold=1) -> int:
@@ -166,13 +172,15 @@ class Item:
         return int(round(value * total_multiplier))
 
     def generate_base_stats(self, base_atk: int, base_ele_atk: int, tier: int, level: int) -> list[list[str, int]]:
-        # Formula : (tier+1) * base * tier's multiplier + levels with
-        nmod_primary_atk = (tier + 1) * base_atk * self.__base_multiplier.get(self._Item_tier) + (level - tier * 10) * base_atk * 0.5
-        nmod_element_atk = (tier + 1) * base_ele_atk * self.__sub_multiplier.get(self._Item_tier) + (level - tier * 10) * base_ele_atk * 0.5
-        primary_atk = self.calculate_base_modified_value(nmod_primary_atk)
-        element_atk = self.calculate_base_modified_value(nmod_element_atk)
         base_atk_label = self.__type_name.get(self._Item_type) + " attack"
         ele_atk_label = self.__eletype.get(self._Item_element_type) + " elemental attack"
+        mod_tier_multipler = self.__base_tier_multiplier.get(self._Item_tier)
+        mod_element_multiplier = self.__element_multiplier.get(self._Item_tier)
+        # Formula : (tier+1) * base * tier's multiplier + levels with
+        nmod_primary_atk = (tier+1) * base_atk * mod_tier_multipler + (level - tier * 10) * base_atk * 0.5
+        nmod_element_atk = (tier+1) * base_ele_atk *  mod_element_multiplier + (level - tier * 10) * base_ele_atk * 0.5
+        primary_atk = self.calculate_base_modified_value(nmod_primary_atk)
+        element_atk = self.calculate_base_modified_value(nmod_element_atk)
         base_stats = list()
         base_stats.append([base_atk_label, primary_atk])
         base_stats.append([ele_atk_label, element_atk])
@@ -212,7 +220,9 @@ class Item:
 
         return selected_bonus_stats
 
+
     # THESE FUNCTIONS ARE USED TO GIVE OUTPUT AS STRINGS
+
     def s_rarity_mapping(self, item_rarity: int) -> str:
         return self.__rarity_name.get(item_rarity)
 
@@ -225,19 +235,6 @@ class Item:
         element_info.append(self.__eleicon.get(item_element_type))
         return element_info
 
-    # 1st - level, 2 - type, 3 - name, 4 - desc
-    @staticmethod
-    def s_speical_attribute(special_attr: list[int, int, str, str]) -> list[str,str,str]:
-        formatted = []
-        if special_attr[0] == 0:
-            sa_type = "Active"
-        else:
-            sa_type = "Passive"
-        level = str(special_attr[1])
-        name = special_attr[2]
-        desc = special_attr[3]
-        formatted.extend([sa_type, level, name, desc])
-        return formatted
 
     def __getitem__(self):
         return {

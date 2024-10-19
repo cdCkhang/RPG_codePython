@@ -107,19 +107,16 @@ class CONSTANTS_STATS:
         5: 18  # Divine
     }
 
-    # ??? What the literal fuck is this
-    Map_tier_multiplier = {
-        1: 5, 2: 5, 3: 1
-    }
 
     # Base stats dict for: multipliers based on item's tier
     # Ranging from tier 0 (lv-1 to lv-10 ) to tier 14 (lv.141-150)
-    Map_base_multiplier = {
+    Map_base_tier_multiplier = {
         0: 4, 1: 5, 2: 6, 3: 7, 4: 8, 5: 9,
         6: 10, 7: 11, 8: 12, 9: 13, 10: 14,
         11: 15, 12: 16, 13: 17, 14: 18
     }
-    Map_sub_multiplier = {
+
+    Map_element_multiplier = {
         0: 2, 1: 3, 2: 4, 3: 5, 4: 6, 5: 7,
         6: 8, 7: 9, 8: 10, 9: 11, 10: 12,
         11: 13, 12: 14, 13: 15, 14: 16
